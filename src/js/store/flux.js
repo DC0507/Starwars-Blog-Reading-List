@@ -22,9 +22,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(res => res.json())
 					.then(data => setStore({ people: data.results }))
 					.catch(err => console.error(err));
-			},
+			}
 
-			getInfo: url => {
+			/*getInfo: url => {
 				fetch(url)
 					.then(res => res.json())
 					.then(data => {
@@ -32,7 +32,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						console.log(data.result.properties);
 					})
 					.catch(err => console.error(err));
-			}
+			}*/
 		}
 	};
 };
