@@ -5,20 +5,14 @@ import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 
-export const Home = () => {
+export const Home2 = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
 		<Container>
 			<Row className="mt-5">
 				<Col>
-					<Carouse_l heading="Characters" arr={store.people} />
-				</Col>
-				<Col>
-					<Carouse_l heading="Planets" arr={store.planets} />
-				</Col>
-				<Col>
-					<Carouse_l heading="Vehicles" arr={store.vehicles} />
+					<p>Here will be my characters!!</p>
 				</Col>
 			</Row>
 		</Container>
