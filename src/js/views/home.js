@@ -1,18 +1,26 @@
 import React, { useContext } from "react";
-import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.scss";
-import { Cards } from "../component/card";
+import { Carouse_l } from "../component/carousel";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
+import { Container, Row, Col } from "react-bootstrap";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
-		<div className="container pb-5">
-			<Cards heading="People" obj={store.people} deckPath="/people" cardPath="/person" n={4} />
-			<Cards heading="Planets" obj={store.planets} deckPath="/planets" cardPath="/planet" n={4} />
-			<Cards heading="Vehicles" obj={store.vehicles} deckPath="/vehicles" cardPath="/vehicle" n={4} />
-		</div>
+		<Container>
+			<Row>
+				<Col>
+					<Carouse_l heading="Characters" arr={store.people} />
+				</Col>
+				<Col>
+					<Carouse_l heading="Planets" arr={store.planets} />
+				</Col>
+				<Col>
+					<Carouse_l heading="Vehicles" arr={store.vehicles} />
+				</Col>
+			</Row>
+		</Container>
 	);
 };
