@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -10,7 +8,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
-
 			getPlanets: () => {
 				fetch("https://www.swapi.tech/api/planets")
 					.then(res => res.json())
@@ -33,8 +30,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			setFavorites: name => {
-				const { store } = getStore();
-				setStore({ favorites: [...favorites, name] });
+				const store = getStore();
+				if (!store.favorites.includes(name)) {
+					setStore({ favorites: [...store.favorites, name] });
+				} else {
+					null;
+				}
 			}
 		}
 	};

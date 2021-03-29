@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Card, Table, Button } from "react-bootstrap";
 import PropTypes from "prop-types";
+import { Context } from "../store/appContext";
 
 export const Cards = props => {
+	const { store, actions } = useContext(Context);
+
 	return (
 		<>
 			<h1 className="text-center mb-3">{props.heading}</h1>
@@ -17,7 +20,13 @@ export const Cards = props => {
 										<Card.Body>
 											<Card.Title>{item.name}</Card.Title>
 											<Card.Text>Some quick</Card.Text>
-											<Button variant="warning">Learn more</Button>{" "}
+											<Button variant="warning">Learn more</Button>
+											<Button
+												className="float-right"
+												variant="info"
+												onClick={() => actions.setFavorites(item.name)}>
+												<i className="fas fa-heart" />
+											</Button>
 										</Card.Body>
 									</Card>
 								</td>

@@ -1,30 +1,20 @@
-import React, { useContext } from "react";
 import "../../styles/home.scss";
-import { Carouse_l } from "../component/carousel";
-import { Context } from "../store/appContext";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import { Context } from "../store/appContext";
 import { Container, Row, Col } from "react-bootstrap";
+import { Cards } from "../component/cards";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
-		<Container>
-			<Row className="mt-5">
-				<Col>
-					<Carouse_l
-						aFunc={actions.setFavorites}
-						path="/characters"
-						heading="Characters"
-						arr={store.people}
-					/>
-				</Col>
-				<Col>
-					<Carouse_l path="/planets" heading="Planets" arr={store.planets} />
-				</Col>
-				<Col>
-					<Carouse_l path="/vehicles" heading="Vehicles" arr={store.vehicles} />
-				</Col>
+		<Container my-5>
+			<Row className="text-center">
+				<Cards heading="Characters" arr={store.people} />
+				<Cards heading="Planets" arr={store.planets} />
+				<Cards heading="Vehicles" arr={store.vehicles} />
 			</Row>
 		</Container>
 	);

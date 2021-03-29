@@ -5,7 +5,8 @@ import { Navbar, Nav, Dropdown, Form, FormControl, Button } from "react-bootstra
 import { Context } from "../store/appContext";
 
 export const Navba_r = () => {
-	const { store, actions } = useContext(Context);
+	const { store } = useContext(Context);
+
 	return (
 		<Navbar bg="dark" variant="dark">
 			<Navbar.Brand href="#home">
@@ -36,8 +37,8 @@ export const Navba_r = () => {
 					<Dropdown.Toggle variant="warning" id="dropdown-basic">
 						{`Favorites (${store.favorites.length})`}
 					</Dropdown.Toggle>
-
 					<Dropdown.Menu>
+						<Dropdown.Header>Dropdown header</Dropdown.Header>
 						{store.favorites.map((item, i) => {
 							return (
 								<Dropdown.Item href="#/action-1" key={i}>

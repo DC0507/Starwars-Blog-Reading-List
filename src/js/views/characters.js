@@ -1,4 +1,4 @@
-import "../../styles/characters.scss";
+//import "../../styles/characters.scss";
 import React, { useContext } from "react";
 import { Cards } from "../component/cards";
 import { Context } from "../store/appContext";
