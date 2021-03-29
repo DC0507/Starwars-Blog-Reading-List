@@ -12,7 +12,12 @@ export const Home = () => {
 		<Container>
 			<Row className="mt-5">
 				<Col>
-					<Carouse_l path="/characters" heading="Characters" arr={store.people} />
+					<Carouse_l
+						aFunc={actions.setFavorites}
+						path="/characters"
+						heading="Characters"
+						arr={store.people}
+					/>
 				</Col>
 				<Col>
 					<Carouse_l path="/planets" heading="Planets" arr={store.planets} />

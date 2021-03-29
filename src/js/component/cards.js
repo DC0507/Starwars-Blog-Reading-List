@@ -13,7 +13,7 @@ export const Cards = props => {
 							return (
 								<td key={i}>
 									<Card bg="dark" text="white" style={{ width: "18rem" }}>
-										<Card.Img vvariant="top" src="https://fakeimg.pl/350x200/?text=Sample Pic" />
+										<Card.Img vvariant="top" src="https://fakeimg.pl/350x200" />
 										<Card.Body>
 											<Card.Title>{item.name}</Card.Title>
 											<Card.Text>Some quick</Card.Text>

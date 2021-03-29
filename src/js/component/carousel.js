@@ -15,11 +15,14 @@ export const Carouse_l = props => {
 					return (
 						<Carousel.Item key={i}>
 							<Card bg="dark" text="white" style={{ width: "18rem" }}>
-								<Card.Img variant="top" src="https://fakeimg.pl/350x200/?text=Sample Pic" />
+								<Card.Img variant="top" src="https://fakeimg.pl/350x200" />
 								<Card.Body>
 									<Card.Title>{item.name}</Card.Title>
 									<Card.Text>Some quick</Card.Text>
 									<Button variant="warning">Learn more</Button>
+									<Button className="float-right" variant="info" onClick={() => props.aFunc}>
+										<i className="fas fa-heart" />
+									</Button>
 								</Card.Body>
 							</Card>
 						</Carousel.Item>
@@ -33,5 +36,6 @@ export const Carouse_l = props => {
 Carouse_l.propTypes = {
 	path: PropTypes.string,
 	heading: PropTypes.string,
-	arr: PropTypes.array
+	arr: PropTypes.array,
+	aFunc: PropTypes.func
 };

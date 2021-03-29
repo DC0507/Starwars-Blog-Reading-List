@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import starWarsImg from "../../img/starWars.png";
-import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
+import { Navbar, Nav, Dropdown, Form, FormControl, Button } from "react-bootstrap";
+import { Context } from "../store/appContext";
 
 export const Navba_r = () => {
+	const { store, actions } = useContext(Context);
 	return (
 		<Navbar bg="dark" variant="dark">
 			<Navbar.Brand href="#home">
@@ -30,6 +32,22 @@ export const Navba_r = () => {
 						Vehicles
 					</Link>
 				</Nav.Link>
+				<Dropdown className="ml-3">
+					<Dropdown.Toggle variant="warning" id="dropdown-basic">
+						{`Favorites (${store.favorites.length})`}
+					</Dropdown.Toggle>
+
+					<Dropdown.Menu>
+						{store.favorites.map((item, i) => {
+							return (
+								<Dropdown.Item href="#/action-1" key={i}>
+									{item}
+									<i className="fas fa-trash" />
+								</Dropdown.Item>
+							);
+						})}
+					</Dropdown.Menu>
+				</Dropdown>
 			</Nav>
 			<Form inline>
 				<FormControl type="text" placeholder="Search" className="mr-sm-2" />
