@@ -1,5 +1,3 @@
-import "../../styles/carousel.scss";
-
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
@@ -9,7 +7,9 @@ import { Carousel, Card, Button } from "react-bootstrap";
 export const Carouse_l = props => {
 	return (
 		<>
-			<h1 className="text-center mb-3">{props.heading}</h1>
+			<Link to={props.path} style={{ textDecoration: "none", color: "black" }}>
+				<h1 className="text-center mb-3">{props.heading}</h1>
+			</Link>
 			<Carousel controls={false} indicators={false} fade>
 				{props.arr.map((item, i) => {
 					return (
@@ -31,6 +31,7 @@ export const Carouse_l = props => {
 };
 
 Carouse_l.propTypes = {
+	path: PropTypes.string,
 	heading: PropTypes.string,
 	arr: PropTypes.array
 };

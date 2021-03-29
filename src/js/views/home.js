@@ -12,13 +12,13 @@ export const Home = () => {
 		<Container>
 			<Row className="mt-5">
 				<Col>
-					<Carouse_l heading="Characters" arr={store.people} />
+					<Carouse_l path="/characters" heading="Characters" arr={store.people} />
 				</Col>
 				<Col>
-					<Carouse_l heading="Planets" arr={store.planets} />
+					<Carouse_l path="/planets" heading="Planets" arr={store.planets} />
 				</Col>
 				<Col>
-					<Carouse_l heading="Vehicles" arr={store.vehicles} />
+					<Carouse_l path="/vehicles" heading="Vehicles" arr={store.vehicles} />
 				</Col>
 			</Row>
 		</Container>
