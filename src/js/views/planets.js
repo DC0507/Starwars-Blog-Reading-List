@@ -2,14 +2,13 @@ import "../../styles/planets.scss";
 import React, { useContext } from "react";
 import { Cards } from "../component/cards";
 import { Context } from "../store/appContext";
-import { Link } from "react-router-dom";
-import { Container } from "react-bootstrap";
+import { Container, Col } from "react-bootstrap";
 
 export const Planets = () => {
-	const { store, actions } = useContext(Context);
+	const { store } = useContext(Context);
 	return (
-		<Container className="mt-5">
+		<Col md={{ span: 8, offset: 1 }}>
 			<Cards numProp={4} heading="Planets" arr={store.planets} />
-		</Container>
+		</Col>
 	);
 };

@@ -10,6 +10,8 @@ import { Single } from "./views/single";
 import injectContext from "./store/appContext";
 import { Navba_r } from "./component/navbar";
 import { Footer } from "./component/footer";
+import { FavList } from "./component/favList";
+import { Container, Row, Col } from "react-bootstrap";
 
 //create your first component
 const Layout = () => {
@@ -22,26 +24,33 @@ const Layout = () => {
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
 					<Navba_r />
-					<Switch>
-						<Route exact path="/">
-							<Home />
-						</Route>
-						<Route exact path="/characters">
-							<Characters />
-						</Route>
-						<Route exact path="/planets">
-							<Planets />
-						</Route>
-						<Route exact path="/vehicles">
-							<Vehicles />
-						</Route>
-						<Route exact path="/single/:theid">
-							<Single />
-						</Route>
-						<Route>
-							<h1>Not found!</h1>
-						</Route>
-					</Switch>
+					<Container fluid>
+						<Row>
+							<Col md={2}>
+								<FavList />
+							</Col>
+							<Switch>
+								<Route exact path="/">
+									<Home />
+								</Route>
+								<Route exact path="/characters">
+									<Characters />
+								</Route>
+								<Route exact path="/planets">
+									<Planets />
+								</Route>
+								<Route exact path="/vehicles">
+									<Vehicles />
+								</Route>
+								<Route exact path="/single/:theid">
+									<Single />
+								</Route>
+								<Route>
+									<h1>Not found!</h1>
+								</Route>
+							</Switch>
+						</Row>
+					</Container>
 					<Footer />
 				</ScrollToTop>
 			</BrowserRouter>

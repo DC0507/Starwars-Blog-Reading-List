@@ -43,7 +43,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			deleteFavorites: async index => {
 				const store = getStore();
-				const newFavorites = store.favorites.filter((item, i) => i != index);
+				const newFavorites = store.favorites.filter((_, i) => i != index);
 				setStore({ favorites: newFavorites });
 			}
 		}

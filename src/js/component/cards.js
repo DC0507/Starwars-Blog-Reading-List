@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { Context } from "../store/appContext";
 
 export const Cards = props => {
-	const { store, actions } = useContext(Context);
+	const { actions } = useContext(Context);
 
 	return (
 		<>
@@ -15,7 +15,7 @@ export const Cards = props => {
 						{props.arr.map((item, i) => {
 							return (
 								<td key={i}>
-									<Card bg="dark" text="white" style={{ width: "18rem" }}>
+									<Card bg="dark" text="white" style={{ width: "20rem" }}>
 										<Card.Img variant="top" src="https://fakeimg.pl/350x200" />
 										<Card.Body>
 											{Object.entries(item).map((el, i) => {
