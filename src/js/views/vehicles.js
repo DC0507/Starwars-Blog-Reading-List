@@ -9,7 +9,7 @@ export const Vehicles = () => {
 	const { store, actions } = useContext(Context);
 	return (
 		<Container className="mt-5">
-			<Cards heading="Vehicles" arr={store.vehicles} />
+			<Cards numProp={4} heading="Vehicles" arr={store.vehicles} />
 		</Container>
 	);
 };

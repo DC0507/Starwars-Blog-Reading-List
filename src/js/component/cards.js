@@ -8,7 +8,7 @@ export const Cards = props => {
 
 	return (
 		<>
-			<h1 className="text-center mb-3">{props.heading}</h1>
+			<h1 className="mb-3">{props.heading}</h1>
 			<Table borderless={true} responsive>
 				<tbody>
 					<tr>
@@ -16,10 +16,15 @@ export const Cards = props => {
 							return (
 								<td key={i}>
 									<Card bg="dark" text="white" style={{ width: "18rem" }}>
-										<Card.Img vvariant="top" src="https://fakeimg.pl/350x200" />
+										<Card.Img variant="top" src="https://fakeimg.pl/350x200" />
 										<Card.Body>
-											<Card.Title>{item.name}</Card.Title>
-											<Card.Text>Some quick</Card.Text>
+											{Object.entries(item).map((el, i) => {
+												if (i == 0) {
+													return <Card.Title key={i}>{el[1]}</Card.Title>;
+												} else if (i < props.numProp) {
+													return <Card.Text key={i}>{`${el[0]}: ${el[1]}`}</Card.Text>;
+												}
+											})}
 											<Button variant="warning">Learn more</Button>
 											<Button
 												className="float-right"
@@ -41,5 +46,6 @@ export const Cards = props => {
 
 Cards.propTypes = {
 	heading: PropTypes.string,
-	arr: PropTypes.array
+	arr: PropTypes.array,
+	numProp: PropTypes.number
 };

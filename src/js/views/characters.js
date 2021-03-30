@@ -9,7 +9,7 @@ export const Characters = () => {
 	const { store, actions } = useContext(Context);
 	return (
 		<Container className="mt-5">
-			<Cards heading="Characters" arr={store.people} />
+			<Cards numProp={4} heading="Characters" arr={store.people} />
 		</Container>
 	);
 };

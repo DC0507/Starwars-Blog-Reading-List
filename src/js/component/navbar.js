@@ -42,10 +42,8 @@ export const Navba_r = () => {
 						{store.favorites.map((item, i) => {
 							return (
 								<Dropdown.Item href="#/action-1" key={i}>
-									<b>
-										{item}
-										<i onClick={() => actions.deleteFavorites(item)} className="fas fa-trash" />
-									</b>
+									<b>{item}</b>
+									<i onClick={() => actions.deleteFavorites(i)} className="fas fa-trash" />
 								</Dropdown.Item>
 							);
 						})}

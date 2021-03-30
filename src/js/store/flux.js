@@ -4,26 +4,29 @@ const getState = ({ getStore, getActions, setStore }) => {
 			planets: [],
 			people: [],
 			vehicles: [],
-			favorites: []
+			favorites: [],
+			favCharacters: [],
+			favPlanets: [],
+			favVehicles: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
 			getPlanets: () => {
-				fetch("https://www.swapi.tech/api/planets")
+				fetch("https://swapi.dev/api/planets")
 					.then(res => res.json())
 					.then(data => setStore({ planets: data.results }))
 					.catch(err => console.error(err));
 			},
 
 			getPeople: () => {
-				fetch("https://www.swapi.tech/api/people")
+				fetch("https://swapi.dev/api/people")
 					.then(res => res.json())
 					.then(data => setStore({ people: data.results }))
 					.catch(err => console.error(err));
 			},
 
 			getVehicles: () => {
-				fetch("https://www.swapi.tech/api/vehicles")
+				fetch("https://swapi.dev/api/vehicles")
 					.then(res => res.json())
 					.then(data => setStore({ vehicles: data.results }))
 					.catch(err => console.error(err));
@@ -38,9 +41,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
-			deleteFavorites: name => {
+			deleteFavorites: async index => {
 				const store = getStore();
-				setStore({ favorites: [store.favorites.filter(item => item != name)] });
+				const newFavorites = store.favorites.filter((item, i) => i != index);
+				setStore({ favorites: newFavorites });
 			}
 		}
 	};
