@@ -5,7 +5,7 @@ import { Navbar, Nav, Dropdown, Form, FormControl, Button } from "react-bootstra
 import { Context } from "../store/appContext";
 
 export const Navba_r = () => {
-	const { store } = useContext(Context);
+	const { store, actions } = useContext(Context);
 
 	return (
 		<Navbar bg="dark" variant="dark">
@@ -38,12 +38,14 @@ export const Navba_r = () => {
 						{`Favorites (${store.favorites.length})`}
 					</Dropdown.Toggle>
 					<Dropdown.Menu>
-						<Dropdown.Header>Dropdown header</Dropdown.Header>
+						{store.favorites.length == 0 ? <Dropdown.Header>No favorites</Dropdown.Header> : null}
 						{store.favorites.map((item, i) => {
 							return (
 								<Dropdown.Item href="#/action-1" key={i}>
-									{item}
-									<i className="fas fa-trash" />
+									<b>
+										{item}
+										<i onClick={() => actions.deleteFavorites(item)} className="fas fa-trash" />
+									</b>
 								</Dropdown.Item>
 							);
 						})}
