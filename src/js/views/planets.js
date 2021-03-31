@@ -8,7 +8,7 @@ export const Planets = () => {
 	const { store } = useContext(Context);
 	return (
 		<Col md={{ span: 8, offset: 1 }}>
-			<Cards numProp={4} heading="Planets" arr={store.planets} />
+			<Cards itemPath="/planet/" numProp={4} heading="Planets" arr={store.planets} />
 		</Col>
 	);
 };

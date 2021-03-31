@@ -1,3 +1,5 @@
+import styles from "../../styles/cards.scss";
+import { Link } from "react-router-dom";
 import React, { useContext } from "react";
 import { Card, Table, Button } from "react-bootstrap";
 import PropTypes from "prop-types";
@@ -9,7 +11,7 @@ export const Cards = props => {
 	return (
 		<>
 			<h1 className="mb-3">{props.heading}</h1>
-			<Table borderless={true} responsive>
+			<Table className="cards.myclass" borderless={true} responsive>
 				<tbody>
 					<tr>
 						{props.arr.map((item, i) => {
@@ -25,7 +27,13 @@ export const Cards = props => {
 													return <Card.Text key={i}>{`${el[0]}: ${el[1]}`}</Card.Text>;
 												}
 											})}
-											<Button variant="warning">Learn more</Button>
+											<Button variant="warning">
+												<Link
+													to={props.itemPath + i}
+													style={{ textDecoration: "none", color: "#666666" }}>
+													<b>Learn more</b>
+												</Link>
+											</Button>
 											<Button
 												className="float-right"
 												variant="info"
@@ -47,5 +55,6 @@ export const Cards = props => {
 Cards.propTypes = {
 	heading: PropTypes.string,
 	arr: PropTypes.array,
-	numProp: PropTypes.number
+	numProp: PropTypes.number,
+	itemPath: PropTypes.string
 };

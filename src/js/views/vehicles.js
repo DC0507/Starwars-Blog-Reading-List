@@ -8,7 +8,7 @@ export const Vehicles = () => {
 	const { store } = useContext(Context);
 	return (
 		<Col md={{ span: 8, offset: 1 }}>
-			<Cards numProp={4} heading="Vehicles" arr={store.vehicles} />
+			<Cards itemPath="/vehicle/" numProp={4} heading="Vehicles" arr={store.vehicles} />
 		</Col>
 	);
 };

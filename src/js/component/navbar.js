@@ -8,11 +8,11 @@ export const Navba_r = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
-		<Navbar bg="dark" variant="dark">
+		<Navbar className="mb-5" bg="dark" variant="dark">
 			<Navbar.Brand href="#home">
-				<img src={starWarsImg} style={{ width: "15%" }} />
+				<img src={starWarsImg} style={{ width: "20%" }} />
 			</Navbar.Brand>
-			<Nav className="mr-auto">
+			<Nav className="mr-auto" style={{ fontSize: "20pt" }}>
 				<Nav.Link>
 					<Link className="text-warning" to="/" style={{ textDecoration: "none" }}>
 						Home
@@ -34,14 +34,14 @@ export const Navba_r = () => {
 					</Link>
 				</Nav.Link>
 				<Dropdown className="ml-3">
-					<Dropdown.Toggle variant="warning" id="dropdown-basic">
+					<Dropdown.Toggle variant="warning" id="dropdown-basic" style={{ fontSize: "18pt" }}>
 						{`Favorites (${store.favorites.length})`}
 					</Dropdown.Toggle>
 					<Dropdown.Menu>
-						{store.favorites.length == 0 ? <Dropdown.Header>No favorites</Dropdown.Header> : null}
+						{store.favorites.length == 0 ? <Dropdown.Header>Empty</Dropdown.Header> : null}
 						{store.favorites.map((item, i) => {
 							return (
-								<Dropdown.Item href="#/action-1" key={i}>
+								<Dropdown.Item href="#/action-1" key={i} active>
 									<b>{item}</b>
 									<i onClick={() => actions.deleteFavorites(i)} className="fas fa-trash" />
 								</Dropdown.Item>
@@ -51,8 +51,11 @@ export const Navba_r = () => {
 				</Dropdown>
 			</Nav>
 			<Form inline>
-				<FormControl type="text" placeholder="Search" className="mr-sm-2" />
-				<Button variant="outline-info">Search</Button>
+				{/*no functionality...yet*/}
+				<FormControl type="text" placeholder="Search" className="mr-sm-2" style={{ fontSize: "18pt" }} />
+				<Button variant="outline-info" style={{ fontSize: "18pt" }}>
+					Search
+				</Button>
 			</Form>
 		</Navbar>
 	);
